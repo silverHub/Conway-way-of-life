@@ -18,13 +18,13 @@
       var prevLine = board[y-1] || [];
       var actualLine = board[y] || [];
       var nextLine = board[y+1] || [];
-      var neighbours = [
+      [
         prevLine[x-1],prevLine[x],prevLine[x+1],
         actualLine[x-1],actualLine[x+1],
         nextLine[x-1],nextLine[x],nextLine[x+1]
       ].map(function(a) {
         count += +!!a;
-      })
+      });
       return count;
     }
 
@@ -51,10 +51,10 @@
     expose.actualBoard = actualBoard;
 
     return expose;
-  }
+  };
 
   window.GameView = function GameView(game) {
-    var game = game;
+    //var game = game;
     var $grid = $('#grid');
     var exposed = {};
     exposed.render = render;
@@ -65,7 +65,7 @@
       console.log(logBoard(game.board));
       for (var y = 0; y < game.dim.height; y++) {
         for (var x = 0; x < game.dim.width; x++) {
-          game.board[x][y] = Math.random() < 0.5 ? 0 : 1;;
+          game.board[x][y] = Math.random() < 0.5 ? 0 : 1;
         }
       }
       render();
@@ -94,7 +94,7 @@
       $grid.appendChild(tbody);
     }
     return exposed;
-  }
+  };
 
   function cloneBoard(board) {
      return board.slice().map(function(row){ return row.slice(); });
@@ -125,22 +125,22 @@
     }
 
 
-    nextBtn.addEventListener('click',function(evt){
+    nextBtn.addEventListener('click',function(){
       view.next();
     });
 
-    $('#random').addEventListener('click',function(evt){
+    randomBtn.addEventListener('click',function(){
       view.random();
     });
 
-    $('#autoplay').addEventListener('click',function(evt){
+    autoplayBtn.addEventListener('click',function(evt){
       if (evt.target.checked) {
         repeat = setInterval(view.next, 1000);
       } else {
         clearInterval(repeat);
       }
       toggleButtons([nextBtn,randomBtn]);
-    })
+    });
   }());
 
 }());
