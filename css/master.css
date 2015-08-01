@@ -1,0 +1,56 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1{
+  margin: 20px 0px;
+}
+
+#grid{
+  margin: 20px auto;
+  border-collapse: none;
+}
+  #grid tbody td {
+    width: 80px;
+    height:80px;
+    display: inline-block;
+    margin-left: 1px;
+    background-color: lightgrey;
+  }
+  #grid tbody td.black{
+    background-color: black;
+  }
+
+input[type=checkbox]{
+  display: none;
+}
+
+.button, button{
+  cursor: pointer;
+  font: inherit;
+  padding: 1em 3em;
+  background: linear-gradient(hsla(0, 0%, 100%, 0.5), hsla(0, 0%, 100%, 0)) lightgrey;
+  border-radius: .3em;
+  border: 2px solid rgba(0,0,0,.2);
+  font-weight: bold;
+  box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.54);
+}
+button:active{
+  outline: none;
+  background: linear-gradient(hsla(0, 0%, 100%, 0.5), hsla(0, 0%, 100%, 0)) lightskyblue;
+}
+
+
+button:disabled{
+  cursor: not-allowed;
+}
+
+input[type=checkbox]:checked + label{
+  background: linear-gradient(hsla(0, 0%, 100%, 0.5), hsla(0, 0%, 100%, 0)) lightskyblue;
+}
